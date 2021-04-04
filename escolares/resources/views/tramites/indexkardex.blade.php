@@ -1,13 +1,18 @@
 @extends('adminlte::page')
 
-@section('title', 'kardex')
+@section('title', 'Kardex')
 
 @section('content_header')
-
- <!--agregamos el boton para descargar kardex-->
  <a href="{{ route('descargarPDF') }}"class="btn btn-success btn-sm float-right">Descargar</a>
 
-    <h1></h1>
+ <nav class="navbar navbar-light float-left">
+    <form class="form-inline">
+  
+      <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por matricula" aria-label="Search">
+  
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+  </nav>
 @stop
 
 @section('content')
@@ -25,7 +30,8 @@
                 </style>
             </head>
             <body>
-               <h1>Universidad Politécnica de victoria.<br>kárdex</h1>
+               <h2>Universidad Politécnica de victoria.</h2>
+               <h3>kardex</h3>
                <hr>
                <div class="contenido">
                     <form>
@@ -40,28 +46,29 @@
                                 <tr> <!-- ENCABEZADOS DE LAS TABLAS-->
                                     
                                     <th scole="col">matricula </th>
-                                    {{-- <th scole="col">Materia</th>
+                                     <th scole="col">Materia</th>
                                     <th scole="col">Calificacion</th>
                                     <th scole="col">Resultado</th>
-                                    <th scole="col">Creditos </th>
+                                    <th scole="col">Creditos </th> 
                                     <th scole="col">Curso </th>
-                                    <th scole="col">Periodo </th> --}}
+                                    <th scole="col">Periodo </th>  
                                 </tr>
                             </thead>
                             <tbody>
-                              {{-- @foreach($alumno as $alumno)
+                               @foreach($alumno as $i)
                               <tr>
-                                <td>{{$alumno->matricula}}</td> --}}
+                                <td>{{$i['matricula']}}</td> 
+                                <td>{{$i['idplanestudios']}}</td> 
                                
-                            {{-- </tr> --}}
-                        {{-- @endforeach --}}
+                            </tr>
+                         @endforeach 
                                 
                             </tbody>
                     </form>
                 </div>
             </body>
         </html>
-    </p>
+    </p> 
 @stop
 
 @section('css')
@@ -71,6 +78,4 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
-
-
 

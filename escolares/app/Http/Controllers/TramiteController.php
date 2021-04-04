@@ -9,17 +9,57 @@ use Symfony\Component\Console\Input\Input;
 
 class TramiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function indexkardex(Request $request)
     {
-        //
+         $matricula = $request->get('buscarpor');//creamos la variable con el valor que se esta buscando
+         $alumno = escolaresalumno::where('matricula','like',"%$matricula%");
+         return view('tramites.indexkardex', compact('alumno',));
     }
 
-    /**
+    public function mostrarkardex()
+    {
+
+    //    $datos = escolaresalumno::all()->toArray();
+    //    $alumnos=
+    //    return view('tramites.indexpruebakardex')->with('alumno', $alumno);
+    }
+
+    
+
+    
+
+    public function certificado()
+    {
+        //
+        return view('tramites.indexcertificado');
+    }
+
+    public function constanciaEstudios()
+    {
+        //
+        return view('tramites.indexconstancia');
+    }
+
+    public function formatoRegistro()
+    {
+        //
+        return view('tramites.indexregistro');
+    }
+
+    public function historialAcademico()
+    {
+        //retornamos a la vista
+        return view('tramites.indexhistorialuno');
+    }
+
+    public function docRecibidos()
+    {
+        //retornamos a la vista
+        return view('tramites.indexdocRecibidos');
+    }
+
+        /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -85,47 +125,5 @@ class TramiteController extends Controller
         //
     }
 
-
-    public function kardex()
-    {
-    //     $alumno = escolaresalumno::all()->toArray();
-    //    dd($alumno);
-    //     $alumno = DB::table('escolaresalumno');
-        return view('tramites.pruebakardex');
-    }
-
-    
-
-    
-
-    public function certificado()
-    {
-        //
-        return view('tramites.certificado');
-    }
-
-    public function constanciaEstudios()
-    {
-        //
-        return view('tramites.constancia');
-    }
-
-    public function formatoRegistro()
-    {
-        //
-        return view('tramites.registro');
-    }
-
-    public function historialAcademico()
-    {
-        //retornamos a la vista
-        return view('tramites.historial');
-    }
-
-    public function docRecibidos()
-    {
-        //retornamos a la vista
-        return view('tramites.docRecibidos');
-    }
 
 }

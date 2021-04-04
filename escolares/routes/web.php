@@ -54,17 +54,17 @@ Route::get('/prueba', [App\Http\Controllers\PruebaController::class, 'prueba'])-
  /* ---------------------------------- RUTA DE TRAMITES ----------------------------------------*/
  
  // Index kardex
- Route::get('/Kardex', [App\Http\Controllers\TramiteController::class, 'kardex'])->name('Tramite.kardex');
+ Route::get('/Kardex', [App\Http\Controllers\TramiteController::class, 'indexkardex'])->name('Tramite.indexkardex');
  // historial academico
- Route::get('/HistorialAcademico', [App\Http\Controllers\TramiteController::class, 'historialAcademico'])->name('Tramite.historial');
+ Route::get('/HistorialAcademico', [App\Http\Controllers\TramiteController::class, 'historialAcademico'])->name('Tramite.indexhistorialuno');
  // formato de registro
- Route::get('/FormatoDeRegistro', [App\Http\Controllers\TramiteController::class, 'formatoRegistro'])->name('Tramite.registro');
+ Route::get('/FormatoDeRegistro', [App\Http\Controllers\TramiteController::class, 'formatoRegistro'])->name('Tramite.indexregistro');
  // certificado
-  Route::get('/Certificado', [App\Http\Controllers\TramiteController::class, 'certificado'])->name('Tramite.certificado');
+  Route::get('/Certificado', [App\Http\Controllers\TramiteController::class, 'certificado'])->name('Tramite.indexcertificado');
  // constancia de estudios
- Route::get('/ConstanciaDeEstudios', [App\Http\Controllers\TramiteController::class, 'constanciaEstudios'])->name('Tramite.constancia');
+ Route::get('/ConstanciaDeEstudios', [App\Http\Controllers\TramiteController::class, 'constanciaEstudios'])->name('Tramite.indexconstancia');
  // documentos recibidos
- Route::get('/DocumentosRecibidos', [App\Http\Controllers\TramiteController::class, 'docRecibidos'])->name('Tramite.docRecibidos');
+ Route::get('/DocumentosRecibidos', [App\Http\Controllers\TramiteController::class, 'docRecibidos'])->name('Tramite.indexdocRecibidos');
 /* ---------------------------------- RUTA DE PDF ----------------------------------------*/
 //descargar kardex
 Route::get('/descargar', [App\Http\Controllers\PDFController::class, 'descargar'])->name('descargarPDF');
