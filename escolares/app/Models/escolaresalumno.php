@@ -11,5 +11,19 @@ class escolaresalumno extends Model
     //referenciamos ala tabla
     protected $table = "escolaresalumno";
 
+
+    public function persona()
+    {
+      return $this->belongsTo('App\Models\personapersona', 'idpersona', 'idpersona');
+    }
+
+    public function planestudios()
+    {
+      return $this->belongsTo('App\Models\escolaresplanestudio', 'idplanestudios', 'idplan_estudios');
+    }
+
+
+
+
     
 }

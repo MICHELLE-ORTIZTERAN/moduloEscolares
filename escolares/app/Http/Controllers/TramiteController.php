@@ -12,9 +12,12 @@ class TramiteController extends Controller
     
     public function indexkardex(Request $request)
     {
-         $matricula = $request->get('buscarpor');//creamos la variable con el valor que se esta buscando
-         $alumno = escolaresalumno::where('matricula','like',"%$matricula%");
-         return view('tramites.indexkardex', compact('alumno',));
+         $matricula = $request->get('buscarpor');
+         $alumno = escolaresalumno::with('persona', 'planestudios.carrera')->where('matricula','like',"%$matricula%")->first();
+
+         error_log(json_encode($alumno));
+
+         return view('tramites.indexkardex', compact('alumno'));
     }
 
     public function mostrarkardex()

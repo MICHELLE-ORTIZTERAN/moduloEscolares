@@ -36,10 +36,10 @@
                <div class="contenido">
                     <form>
                        <div class="form-group">
-                        <label>Alumno:</label><br>
-                        <label>Matricula:</label><br>
-                        <label>Carrera:</label><br>
-                        <label>Plan de Estudios:</label><br>
+                        <label>Alumno: {{$alumno->persona->nombre}} {{$alumno->persona->paterno}} {{$alumno->persona->materno}}</label><br>
+                        <label>Matricula: {{$alumno->matricula}}</label><br>
+                        <label>Carrera: {{$alumno->planestudios->carrera->nombre}}</label><br>
+                        <label>Plan de Estudios: {{$alumno->planestudios->clave}}</label><br>
                         <div class="col-md-10 mx-auto bg-white p-3">
                         <table class="table">
                             <thead class="bg-white text-light">

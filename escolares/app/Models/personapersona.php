@@ -9,4 +9,10 @@ class personapersona extends Model
 {
     use HasFactory;
     protected $table = "personapersona";
+
+    public function alumno()
+    {
+      return $this->hasOne('App\Models\escolaresalumno');
+    }
+
 }
